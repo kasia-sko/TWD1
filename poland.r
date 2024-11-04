@@ -47,10 +47,14 @@ ggplot(poland_sum1[7:13,], aes(x=factor(Year))) +
 
 
 library(scales) 
-####
-ggplot(poland_sum, aes(x=factor(Year))) +
+#### OK WYKRES
+poland_plot <- ggplot(poland_sum, aes(x=factor(Year))) +
   geom_bar(aes(y=total), stat="identity", fill="#D5E5F0") +
   labs(x="Year", y="Number of organs") +
   scale_y_continuous(expand = c(0,0),breaks = pretty_breaks(n = 7)) +
   theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+  labs(title = "Transplanted Organs in Poland by Year") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1),
+        plot.title = element_text(hjust = 0.5, size = 14))
+poland_plot
+ggsave("poland_plot.png", poland_plot, width = 10, height = 5)

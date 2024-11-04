@@ -14,6 +14,10 @@ max_value_s <- rep(100,8)
 survival_data <- rbind(max_value_s,min_value_s, survival_rate)
 colnames(survival_data)[7] <- "       Heart-Lung"
 
+
+# Zapis do pliku PNG
+png("survival_rate_radar_chart.png", width = 1500, height = 800, res = 150)
+
 radarchart(survival_data, axistype = 1,
            pcol = c("blue", "red", "darkgreen"),   
            pfcol = c(rgb(0.678, 0.847, 0.902, 0.5),  
@@ -25,11 +29,16 @@ radarchart(survival_data, axistype = 1,
            axislabcol = "black",       
            caxislabels = seq(20, 100, 20),
            cglwd = 1.5,               
-           seg = 4)                   
-#?radarchart
-legend(x = 1.5, y = 1.2, legend = c("1 year survial rate", "3 years survial rate", "5 years survial rate"), bty = "n", 
-       pch = 20, col = c("blue", "red", "darkgreen"), 
-       text.col = "black", cex = 0.8, pt.cex = 1.5)
+           seg = 4)
 
-title(main = "Survival rates by organ transplantation", 
-      col.main = "black", font.main = 2, cex.main = 1.5)
+legend(x = 1.5, y = 1.2, legend = c("1 year survival rate", "3 years survival rate", "5 years survival rate"), 
+       bty = "n", pch = 20, col = c("blue", "red", "darkgreen"), 
+       text.col = "black", cex = 1, pt.cex = 1.5,
+       x.intersp = 0.4, 
+       y.intersp = 0.4)
+
+title(main = "Survival Rates by Organ Transplantation", 
+      col.main = "black", font.main = 1, cex.main = 1.5)
+
+# Zamknięcie urządzenia graficznego i zapis pliku
+dev.off()
