@@ -15,7 +15,8 @@ survival_data <- rbind(max_value_s,min_value_s, survival_rate)
 colnames(survival_data)[7] <- "        Heart-Lung"
 colnames(survival_data)[8] <- "      Kidney-Pancreas"
 
-
+# funkcja radarchart2 ze stackoverflow, ponieważ radarchart nie ma wbudowanej zmiany koloru tekstu
+# przy wierzchołkach
 radarchart2 <- function (df, axistype = 0, seg = 4, pty = 16, pcol = 1:8, plty = 1:6, 
                          plwd = 1, pdensity = NULL, pangle = 45, pfcol = NA, cglty = 3, 
                          cglwd = 1, cglcol = "navy", axislabcol = "blue", vlabcol = "black", title = "", 
@@ -212,57 +213,8 @@ radarchart2 <- function (df, axistype = 0, seg = 4, pty = 16, pcol = 1:8, plty =
 
 
 
-
-
 # Zapis do pliku PNG
 png("survival_rate_radar_chart.png", width = 4500, height = 2400, res = 450, bg = "transparent")
-#svg("survival_rate_radar_chart.svg", width = 10, height = 6, bg = "transparent")
-radarchart(survival_data, axistype = 1,
-           pcol = c("blue", "red", "darkgreen"),   
-           pfcol = c(rgb(0.678, 0.847, 0.902, 0.5),  
-                     rgb(1, 0.75, 0.796, 0.5),        
-                     rgb(0.678, 1, 0.678, 0.5)),    
-           plwd = 1.5,                  
-           #cglcol = "white",  
-           cglcol = rgb(1, 1, 1, 0.5),
-           cglty = 1,                 
-           axislabcol = "white",       
-           caxislabels = seq(20, 100, 20),
-           cglwd = 1.5,               
-           seg = 4)
-par(new = TRUE)
-
-radarchart(survival_data, axistype = 1,
-           pcol = c("blue", "red", "darkgreen"),   
-           pfcol = c(rgb(0.678, 0.847, 0.902, 0),  
-                     rgb(1, 0.75, 0.796, 0),        
-                     rgb(0.678, 1, 0.678, 0)),    
-           plwd = 1.5,                  
-           cglcol = "white",  
-           cglty = 1,                 
-           axislabcol = "white",       
-           caxislabels = seq(20, 100, 20),
-           cglwd = 1.5,               
-           seg = 4)
-legend(x = 1.5, y = 1.2, legend = c("1 year survival rate", "3 years survival rate", "5 years survival rate"), 
-       bty = "n", pch = 20, col = c("blue", "red", "darkgreen"), 
-       text.col = "white", cex = 1, pt.cex = 1.5,
-       x.intersp = 0.4, 
-       y.intersp = 0.9)
-
-
-# Zamknięcie urządzenia graficznego i zapis pliku
-dev.off()
-
-legend(x = -1, y = -1,legend = c("1 year survival rate", "3 years survival rate", "5 years survival rate"), 
-       bty = "n", pch = 20, col = c("blue", "red", "darkgreen"), 
-       text.col = "white", cex = 1.3, pt.cex = 1.5,
-       x.intersp = 0.4, 
-       y.intersp = 0.9)
-
-# Zapis do pliku PNG
-png("survival_rate_radar_chart.png", width = 4500, height = 2400, res = 450, bg = "transparent")
-#svg("survival_rate_radar_chart.svg", width = 10, height = 6, bg = "transparent")
 par(family = "Calibri")
 radarchart2(survival_data, axistype = 1,
            pcol = c("blue", "red", "darkgreen"),   
@@ -293,5 +245,4 @@ radarchart2(survival_data, axistype = 1,
            seg = 4,
            vlabcol = "white")
 
-# Zamknięcie urządzenia graficznego i zapis pliku
 dev.off()

@@ -3,7 +3,7 @@ library("readxl")
 library(dplyr)
 library(tidyr)
 
-
+# procent wykonanych przeszczepów
 Organs <- read_excel("Organ_Donation_and_Transplantation_Data.xlsx", sheet = "Overview - National")
 Organ_table <- Organs %>% replace(Organs == ".", "0") %>%
   mutate("Number of donor organ transplant recipients" = 
