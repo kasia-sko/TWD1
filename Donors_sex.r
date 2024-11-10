@@ -3,6 +3,7 @@ library("readxl")
 library(dplyr)
 library(tidyr)
 library(ggplot2)
+loadfonts(device = "win")
 
 
 donors <- read_excel("Organ_Donation_and_Transplantation_Data.xlsx", sheet = "Donor Demographics")
@@ -32,13 +33,17 @@ plot <- donor_summary %>%
   geom_bar(stat = "identity", position = "stack") +
   scale_y_continuous(limits = c(-100, 100), 
                      expand = c(0, 0), 
-                     #labels = scales::label_percent(scale = 1, suffix = "%")
                      labels = function(x) paste0(abs(x), "%")
-                     ) +
-  labs(x = "", y = "",title = "Percentage Distribution of Living and Deceased Organ Donors by Sex") +
+  ) +
+  labs(x = "", y = "Percentage") +
   theme_minimal() +
-  theme(plot.title = element_text(hjust = 0.5, size = 14),
-        ) +
+  scale_fill_manual(values = c("#f8766d","#cbeac5")) +
+  theme(plot.title = element_text(hjust = 0.5, size = 11, color = "white", family = "Calibri"),
+        axis.title = element_text(color = "white", family = "Calibri", size = 14),
+        axis.text = element_text(color = "white", family = "Calibri", size = 14),
+        legend.text = element_text(color = "white", family = "Calibri", size = 14),
+        legend.title = element_text(color = "white", family = "Calibri", size = 14)
+  ) +
   coord_flip()
 plot
 ggsave("donor_plot.png", plot, width = 10, height = 3)

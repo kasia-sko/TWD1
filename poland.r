@@ -23,38 +23,24 @@ poland_sum1 <- poland_sum1 %>%
   mutate(total = rowSums(poland_sum1[,c("kidney","heart","liver","pancreas","lung")], na.rm = TRUE))
 
 
-ggplot(poland_sum1[7:13,], aes(x=factor(Year))) +
-  geom_bar(aes(y=total), stat="identity", fill="lightgrey") +
-  geom_line(aes(y=kidney, color="Kidney", group=1), size=0.5) +
-  geom_line(aes(y=liver, color="Liver", group=1), size=0.5) +
-  geom_line(aes(y=heart, color="Heart", group=1), size=0.5) +
-  geom_line(aes(y=pancreas, color="Pancreas", group=1), size=0.5) +
-  geom_line(aes(y=lung, color="Lung", group=1), size=0.5) +
-  labs(x="Year", y="Number of organs", color="Organ Type") +
-  scale_color_manual(values=c(
-    "Kidney" = "#1f78b4",  # A stronger blue for kidney
-    "Liver" = "#33a02c",   # A vibrant green for liver
-    "Heart" = "#e31a1c",   # A bold red for heart
-    "Pancreas" = "#ff7f00",# A bright orange for pancreas
-    "Lung" = "#6a3d9a"     # A deep purple for lung
-  )) +
-  scale_y_continuous(expand = c(0,0)) +
-  theme_minimal() +
-  theme(
-    panel.background = element_rect(fill = "#D5E5F0"),
-    legend.position = "right"  
-  )
 
 
 library(scales) 
 #### OK WYKRES
 poland_plot <- ggplot(poland_sum, aes(x=factor(Year))) +
-  geom_bar(aes(y=total), stat="identity", fill="#D5E5F0") +
+  geom_bar(aes(y=total), stat="identity", fill="#aecfee") +
   labs(x="Year", y="Number of organs") +
-  scale_y_continuous(expand = c(0,0),breaks = pretty_breaks(n = 7)) +
+  scale_y_continuous(expand = c(0,0),
+                     limits = c(0,2000),
+                     breaks = seq(0, 2000, by = 500))+
   theme_minimal() +
-  labs(title = "Transplanted Organs in Poland by Year") +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1),
-        plot.title = element_text(hjust = 0.5, size = 14))
+  theme(axis.text.x = element_text(angle = 75, vjust = 1, hjust = 1, family = "Calibri", size = 11),
+        axis.text = element_text(color = "white", family = "Calibri", size = 11),
+        axis.title = element_text(color = "white", family = "Calibri", size = 11),
+        panel.grid.major.x = element_blank(),  # Usuwa pionowe linie siatki
+        #panel.grid.minor = element_blank(),    # Usuwa wszystkie linie siatki pomocnicze
+        panel.grid.major.y = element_line()    # Pozostawia tylko poziome linie siatki
+  )
 poland_plot
 ggsave("poland_plot.png", poland_plot, width = 10, height = 5)
+library(ggplot2)

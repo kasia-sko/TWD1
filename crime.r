@@ -6,7 +6,7 @@ library(scales)
 
 ##### BOXPLOT PRICE OF ORGANS
 price_plot <- ggplot(crime_dt, aes(x = Organ, y = Price)) +
-  geom_boxplot(fill = "lightblue") +
+  geom_boxplot(fill = "#aecfee") +
   scale_y_continuous(labels = label_dollar()) +
   labs(
     title = "Price of Organs",
@@ -14,7 +14,9 @@ price_plot <- ggplot(crime_dt, aes(x = Organ, y = Price)) +
     y = "Price"
   ) +
   theme_minimal() +
-  theme(plot.title = element_text(hjust = 0.5, size = 14))
+  theme(plot.title = element_text(hjust = 0.5, size = 14, color = "white"),
+        axis.title = element_text(color = "white"),
+        axis.text = element_text(color = "white"))
 price_plot
 ggsave("price_plot.png", price_plot, width = 8, height = 6)
 
