@@ -12,5 +12,5 @@ Autorzy: Katarzyna Skoczylas, Aleksandra Zawadka, Martyna Sadowska.
 
 
 
-<img src="Sadowska_Skoczylas_Zawadka.pdf" align="center" width="600"/>
+<img src="Sadowska_Skoczylas_Zawadka.png" align="center" width="600"/>
 
