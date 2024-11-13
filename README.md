@@ -1,10 +1,10 @@
 ## SHARE A PART, SAVE A HEART
 
-Nasz plakat dotyczy przeszczepów organów. Analizujemy w nim rozwój transplantologii w Polsce, w tym spadki i ich potencjalne przyczyny. Porównujemy przeżywalność po przeszczepach różnych organów i zależności między płcią a rodzajem dawcy. Pokazujemy także jakie organy są najczęściej przeszczepiane. Na końcu skupiamy się na nielegalnych przeszczepach i cenach poszczególnych narządów.
+Our poster is about organ transplants. We analyzed the development of transplantology in Poland, including declines in the number of transplanted organs and their likely causes. We compared survival rates after transplanting different organs and examined the relationship between the sex and status of the donor. Additionally, we showed which organ transplants are the most common. Finally, we focused on illegal organ trade and the prices of various organs.
 
-Autorzy: Katarzyna Skoczylas, Aleksandra Zawadka, Martyna Sadowska.
+Authors: Katarzyna Skoczylas, Aleksandra Zawadka, Martyna Sadowska.
 
-Żródło/a danych:
+Sources:
 - https://data.hrsa.gov/topics/health-systems/organ-donation
 - https://www.poltransplant.org.pl/biuletyny.html
 - https://www.statista.com/statistics/1100747/one-three-and-five-year-survival-rates-for-organ-transplants-in-the-us/
